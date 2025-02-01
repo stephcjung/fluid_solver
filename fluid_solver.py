@@ -1,5 +1,6 @@
 ###########################################################################
 # Uses NVIDIA's package Warp.
+# Based on NVIDIA code demonstrating an oscillating fluid source.
 ###########################################################################
 
 import math
@@ -135,10 +136,10 @@ def integrate(u: wp.array2d(dtype=wp.vec2), rho: wp.array2d(dtype=float), dt: fl
     f_g = wp.vec2(-90.8, 0.0) * rho[i, j]
 
     # integrate
-    #u[i, j] = u[i, j] + dt * f_g
+    u[i, j] = u[i, j] + dt * f_g
 
     # fade
-    #rho[i, j] = rho[i, j] * (1.0 - 0.1 * dt)
+    rho[i, j] = rho[i, j] * (1.0 - 0.1 * dt)
 
 
 
